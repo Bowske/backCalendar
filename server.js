@@ -1,5 +1,7 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
+const swietaRoute = require('./routes/swieta');
 
 require('dotenv/config');
 
@@ -8,8 +10,7 @@ const port = 3000;
 
 //midleware
 
-const swietaRoute = require('./routes/swieta');
-
+app.use(bodyParser.json());
 app.use('/swieta', swietaRoute);
 
 mongoose.connect(

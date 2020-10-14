@@ -1,0 +1,19 @@
+{
+  "name": "back-calendar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bowske/back-calendar.git"
+  },
+  "author": "Adam Borowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bowske/back-calendar/issues"
+  },
+  "homepage": "https://github.com/Bowske/back-calendar#readme"
+}

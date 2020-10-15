@@ -1,7 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+var cors = require('cors');
 const app = express();
-const swietaRoute = require('./routes/swieta');
+const zajeciaRoute = require('./routes/zajecia');
+app.use(cors());
 
 require('dotenv/config');
 
@@ -11,7 +13,7 @@ const port = 3000;
 //midleware
 
 app.use(bodyParser.json());
-app.use('/swieta', swietaRoute);
+app.use('/zajecia', zajeciaRoute);
 
 mongoose.connect(
   process.env.DB_CONNECTION,

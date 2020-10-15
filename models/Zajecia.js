@@ -17,6 +17,7 @@ const ZajeciaSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  date: Date,
   description: String,
   additionalInfo: String,
 });

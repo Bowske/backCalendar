@@ -17,6 +17,7 @@ const ZajeciaSchema = mongoose.Schema({
     type: Number,
     required: true,
   },
+  timeOfClassInMs: Number,
   date: String,
   description: String,
   additionalInfo: String,

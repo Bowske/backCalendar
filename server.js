@@ -8,7 +8,7 @@ app.use(cors());
 require('dotenv/config');
 
 const mongoose = require('mongoose');
-const port = 3000;
+const port = 3001;
 
 //midleware
 

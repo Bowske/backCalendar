@@ -18,23 +18,28 @@ router.post('/', (req, res) => {
   let end = new Date(2021, 1, 12, 4, 0, 0);
 
   let arrayToSend = [];
-  let i = 0;
 
-  while (start < end) {
-    if (start.getDay() === req.body.day) {
-      let zajecie = new Zajecia({
-        ...req.body,
-        date: new Date(start.setUTCHours(req.body.hour, req.body.minute)),
-      });
+  async function setDates() {
+    while (start < end) {
+      if (start.getDay() === req.body.day) {
+        let zajecie = new Zajecia({
+          ...req.body,
+          date: new Date(start.setUTCHours(req.body.hour, req.body.minute)),
+        });
 
-      arrayToSend.push(zajecie);
+        arrayToSend.push(zajecie);
 
-      zajecie.save().then(() => {
-        res.json(arrayToSend);
-      });
+        await zajecie.save().then(() => {
+          let copiedDate = new Date(start.getTime());
+          if (new Date(copiedDate.setDate(start.getDate() + 7)) >= end) {
+            res.json(arrayToSend);
+          }
+        });
+      }
+
+      start.setDate(start.getDate() + 1);
     }
-
-    start.setDate(start.getDate() + 1);
   }
+  setDatesS();
 });
 module.exports = router;

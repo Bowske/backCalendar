@@ -40,6 +40,6 @@ router.post('/', (req, res) => {
       start.setDate(start.getDate() + 1);
     }
   }
-  setDatesS();
+  setDates();
 });
 module.exports = router;

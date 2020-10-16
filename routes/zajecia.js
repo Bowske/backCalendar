@@ -24,7 +24,10 @@ router.post('/', (req, res) => {
       if (start.getDay() === req.body.day) {
         let zajecie = new Zajecia({
           ...req.body,
-          date: new Date(start.setUTCHours(req.body.hour, req.body.minute)),
+          date: new Date(start.setUTCHours(req.body.hour, req.body.minute))
+            .toISOString()
+            .substring(0, 16)
+            .replace('T', ' '),
         });
 
         arrayToSend.push(zajecie);
